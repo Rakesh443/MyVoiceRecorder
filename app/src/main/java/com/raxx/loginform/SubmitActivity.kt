@@ -24,6 +24,21 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_submit)
         pickDate()
+
+
+        bookId.setOnClickListener {
+            Toast.makeText(applicationContext,"Started",Toast.LENGTH_LONG).show()
+            var form=Form(sname.text.toString(),noOfTravellersId.text.toString().toInt())
+            Toast.makeText(applicationContext,"Form object",Toast.LENGTH_LONG).show()
+            var db = FormdbHandler(this)
+            Toast.makeText(applicationContext,"Database",Toast.LENGTH_LONG).show()
+            var result=db.insertData(form)
+            Toast.makeText(applicationContext,"result",Toast.LENGTH_LONG).show()
+            if(result==-1.toLong()) Toast.makeText(applicationContext,"Error Occured",Toast.LENGTH_LONG).show()
+            else Toast.makeText(applicationContext,"Succesed",Toast.LENGTH_LONG).show()
+
+
+        }
     }
 
     private fun pickDate() {
@@ -62,6 +77,8 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
         val  intent= Intent(this, TrainListActivity::class.java)
         startActivity(intent)
     }
+
+
 
 
 }
