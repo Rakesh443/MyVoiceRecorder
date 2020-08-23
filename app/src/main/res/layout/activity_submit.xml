@@ -19,43 +19,99 @@
             android:layout_marginEnd="20dp"
             android:orientation="vertical">
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:background="@drawable/loginbuttonbackground"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
-
                 android:drawablePadding="10dp"
                 android:hint="Enter Source"
                 android:padding="10dp" />
-
             <EditText
                 android:id="@+id/dest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
-
                 android:drawablePadding="10dp"
                 android:hint="Enter Destination"
                 android:padding="10dp" />
 
-            <EditText
-                android:id="@+id/date"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/date"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:inputType="text"
+                    android:drawablePadding="10dp"
+                    android:hint="Enter date of Travel"
+                    android:padding="10dp" />
+                <Button
+                    android:id="@+id/dateId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                   android:text="Select Date"
+                    android:background="@drawable/loginbackground"/>
 
-                android:drawablePadding="10dp"
-                android:hint="Enter date of Travel"
-                android:onClick="datepick"
-                android:padding="10dp" />
+            </LinearLayout>
 
-            <NumberPicker
+            <EditText
+                android:id="@+id/editTextNumber"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                android:hint="Number of Travllers"/>
+
+            <EditText
+                android:id="@+id/trainNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                android:hint="Enter Train Number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="trainList"
+                android:text="Train Number List"
+                android:textSize="15dp"
+                android:layout_marginRight="20dp"/>
+
+            <Button
+                android:id="@+id/book"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/loginbuttonbackground"
+                android:onClick="book"
+                android:text="Book"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
 
 
         </LinearLayout>

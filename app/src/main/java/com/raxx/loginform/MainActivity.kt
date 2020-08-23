@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"UserName or Password Cannot be Empty",Toast.LENGTH_LONG).show()
         }
         else if(name.equals(pas.reversed())){
-            val  intent= Intent(this, FormActivity::class.java)
+            val  intent= Intent(this, SubmitActivity::class.java)
             startActivity(intent)}
         else{
             Toast.makeText(applicationContext,"Invalid UserName and Password, Contact Admin",Toast.LENGTH_LONG).show()
