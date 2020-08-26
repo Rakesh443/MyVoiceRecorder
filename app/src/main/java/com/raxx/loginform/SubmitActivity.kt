@@ -23,33 +23,46 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_submit)
-        pickDate()
+        //pickDate()
 
-
+        val context=this
+        var db = FormdbHandler(context)
         bookId.setOnClickListener {
-            Toast.makeText(applicationContext,"Started",Toast.LENGTH_LONG).show()
-            var form=Form(sname.text.toString(),noOfTravellersId.text.toString().toInt())
-            Toast.makeText(applicationContext,"Form object",Toast.LENGTH_LONG).show()
-            var db = FormdbHandler(this)
-            Toast.makeText(applicationContext,"Database",Toast.LENGTH_LONG).show()
-            var result=db.insertData(form)
-            Toast.makeText(applicationContext,"result",Toast.LENGTH_LONG).show()
-            if(result==-1.toLong()) Toast.makeText(applicationContext,"Error Occured",Toast.LENGTH_LONG).show()
-            else Toast.makeText(applicationContext,"Succesed",Toast.LENGTH_LONG).show()
+            if(sname.text.toString().length>0 && noOfTravellersId.text.toString().length > 0){
+                var form = Form(sname.text.toString(),noOfTravellersId.text.toString().toInt())
 
+                db.insertData(form)
+            }
+            else{
+                Toast.makeText(applicationContext,"Enter valid Name and Number of Passengers", Toast.LENGTH_LONG).show()
+            }
 
         }
+
+        logoutId.setOnClickListener{
+//
+//            var result = db.detDate()
+//            for(i in result){
+//                Toast.makeText(applicationContext,"Passengers ${i.name}", Toast.LENGTH_LONG).show()
+//            }
+        }
+        getListId.setOnClickListener{
+        var result = db.getDate()
+        val  intent= Intent(this, BookingListActivity::class.java)
+        intent.putParcelableArrayListExtra("BookingList",result)
+        startActivity(intent)
+
     }
 
-    private fun pickDate() {
+
         dateId.setOnClickListener{
             getDate()
-            DatePickerDialog(this,this, year,month,day).show()
+            var dialog:DatePickerDialog =DatePickerDialog(this,this, year,month,day)
+            dialog.datePicker.minDate=Calendar.getInstance().timeInMillis
+            dialog.show()
 
         }
     }
-
-
     private fun getDate(){
         val cal = Calendar.getInstance()
         day=cal.get(Calendar.DAY_OF_MONTH)
@@ -72,13 +85,9 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
 //        // var date1
 //    }
 
-    fun book(view: View) {}
     fun trainList(view: View) {
         val  intent= Intent(this, TrainListActivity::class.java)
         startActivity(intent)
     }
-
-
-
 
 }

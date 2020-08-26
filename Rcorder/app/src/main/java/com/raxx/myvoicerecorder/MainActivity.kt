@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             mediaRecorder.stop()
             start.isEnabled=true
             rtext.text="Not Recording"
-
+            Toast.makeText(applicationContext,"Recording saved at $path",Toast.LENGTH_LONG).show()
         }
 
 

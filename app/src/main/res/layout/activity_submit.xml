@@ -20,14 +20,15 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/logoutId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="Logout"
-                android:textAllCaps="false"
-                android:background="@drawable/loginbuttonbackground"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/loginbuttonbackground"
+                android:text="Logout"
+                android:textAllCaps="false" />
 
             <EditText
                 android:id="@+id/sname"
@@ -110,15 +111,16 @@
                 android:hint="Enter Train Number"/>
 
             <TextView
+                android:id="@+id/trainListId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="trainList"
                 android:text="Train Number List"
-                android:textSize="15dp"
-                android:layout_marginRight="20dp"/>
+                android:textSize="15dp" />
 
             <Button
                 android:id="@+id/bookId"
@@ -131,6 +133,19 @@
                 android:text="Book"
                 android:textAllCaps="false"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/getListId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+
+
+                android:text="Previous Bookings"
+                android:textSize="15dp" />
 
 
         </LinearLayout>
