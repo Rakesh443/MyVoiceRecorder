@@ -19,8 +19,10 @@ class FormdbHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_N
                 COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL_PNAME + " VARCHAR(256)," +
                 COL_NUMBEROFTRAVELLERS+ " INTEGER)";
-        //val context=this
+
         db?.execSQL(createTable)
+
+
 
     }
 

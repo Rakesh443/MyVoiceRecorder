@@ -1,7 +1,9 @@
 package com.raxx.loginform
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -40,7 +42,11 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
         }
 
         logoutId.setOnClickListener{
-//
+//            var sharedPreferences: SharedPreferences =getSharedPreferences("Login", Context.MODE_PRIVATE)
+//            val editor: SharedPreferences.Editor=sharedPreferences.edit()
+//            editor.putString("Name","")
+//            editor.apply()
+            finish()
 //            var result = db.detDate()
 //            for(i in result){
 //                Toast.makeText(applicationContext,"Passengers ${i.name}", Toast.LENGTH_LONG).show()
@@ -63,6 +69,11 @@ class SubmitActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
 
         }
     }
+
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Please Logout", Toast.LENGTH_SHORT).show()
+    }
+
     private fun getDate(){
         val cal = Calendar.getInstance()
         day=cal.get(Calendar.DAY_OF_MONTH)
